@@ -1,0 +1,35 @@
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  /* background-color: #f0f0f0; */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.addTag {
+    border-color: black;
+  border-style: dashed;
+}
+
+.addTag:focus {
+  outline: none;
+}
+
+.text-container{
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+}
+
+#source-code {
+  width: 80%;
+  margin: 20px 0;
+  overflow: auto;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid black; /* Bold border */
+  padding: 10px;
+  align-content: center;
+}

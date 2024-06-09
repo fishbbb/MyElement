@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/layout.css">
+<title>Layout</title>
+</head>
+<body>
+    <!-- 文本说明 -->
+    <div class="text-container">
+         <h1>Layout 布局组件</h1>
+    <p>该部分展示四种经典的布局，每种布局的代码位于展现效果下面</p>
+    </div>
+
+    <h3>代码演示</h3>
+    <div class="layout">
+        <h2>布局1</h2>
+        <div class="header1">Header</div>
+        <div class="content1">Content</div>
+        <div class="footer1">Footer</div>
+        <pre id="source-code">
+            <code>
+                &lt;div class="layout"&gt;
+                    &lt;h2&gt;布局1&lt;/h2&gt;
+                    &lt;div class="header1"&gt;Header&lt;/div&gt;
+                    &lt;div class="content1"&gt;Content&lt;/div&gt;
+                    &lt;div class="footer1"&gt;Footer&lt;/div&gt;
+                &lt;/div&gt;
+        
+                .layout{
+                    margin: 20px;
+                }
+        
+                .header1 {
+                    background: #f2f2f2;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+        
+                .content1 {
+                    background: #d9d9d9;
+                    flex: 1;
+                    text-align: center;
+                    line-height: 200px;
+                }
+        
+                .footer1 {
+                    background: #bfbfbf;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+            </code>
+        </pre>
+    </div>
+    <div class="layout">
+        <h2>布局2</h2>
+        <div class="header2">Header</div>
+        <div class="row">
+            <div class="sider2">Sider</div>
+            <div class="content2">Content</div>
+        </div>
+        <div class="footer2">Footer</div>
+         <!-- 源代码展示部分 -->
+        <pre id="source-code">
+            <code>
+                &lt;div class="layout"&gt;
+                    &lt;h2&gt;布局2&lt;/h2&gt;
+                    &lt;div class="header2"&gt;Header&lt;/div&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="sider2"&gt;Sider&lt;/div&gt;
+                        &lt;div class="content2"&gt;Content&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="footer2"&gt;Footer&lt;/div&gt;
+                &lt;/div&gt;
+        
+                .layout{
+                    margin: 20px;
+                }
+        
+                
+                .header2 {
+                    background: #f2f2f2;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+
+                .sider2 {
+                    background: #a9c6b9;
+                    width:200px;
+                    text-align: center;
+                    line-height: 200px;
+                }
+
+                .content2 {
+                    background: #d9d9d9;
+                    width:calc(100vw - 200px);
+                    text-align: center;
+                    line-height: 200px;
+                }
+
+                .footer2 {
+                    background: #bfbfbf;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+
+                .row {
+                    display: flex;
+                }
+            </code>
+        </pre>
+    </div>
+    <div class="layout">
+        <h2>布局3</h2>
+        <div class="header3">Header</div>
+        <div class="row">
+             <div class="content3">Content</div>
+            <div class="sider3">Sider</div>
+        </div>
+        <div class="footer3">Footer</div>
+        <pre id="source-code">
+            <code>
+                &lt;div class="layout"&gt;
+                    &lt;h2&gt;布局3&lt;/h2&gt;
+                    &lt;div class="header3"&gt;Header&lt;/div&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="content3"&gt;Content&lt;/div&gt;
+                        &lt;div class="sider3"&gt;Sider&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="footer3"&gt;Footer&lt;/div&gt;
+                &lt;/div&gt;
+        
+                .layout{
+                    margin: 20px;
+                }
+        
+                
+                .header3 {
+                    background: #f2f2f2;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+
+                .sider3 {
+                    background: #a9c6b9;
+                    width:200px;
+                    text-align: center;
+                    line-height: 200px;
+                }
+
+                .content3 {
+                    background: #d9d9d9;
+                    text-align: center;
+                    line-height: 200px;
+                    width:calc(100vh - 200px);
+                }
+
+                .footer3 {
+                    background: #bfbfbf;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+
+                .row {
+                    display: flex;
+                }
+            </code>
+        </pre>
+    </div>
+    <div class="layout">
+        <h2>布局4</h2>
+        <div class="sider4">Sider</div>
+        <div class="column">
+            <div class="header4">Header</div>
+            <div class="content4">Content</div>
+            <div class="footer4">Footer</div>
+        </div>
+        <pre id="source-code">
+            <code>
+                &lt;div class="layout"&gt;
+                    &lt;h2&gt;布局3&lt;/h2&gt;
+                    &lt;div class="sider3"&gt;Sider&lt;/div&gt;
+                    &lt;div class="column"&gt;
+                        &lt;div class="header3"&gt;Header&lt;/div&gt;
+                        &lt;div class="content3"&gt;Content&lt;/div&gt;
+                        &lt;div class="footer3"&gt;Footer&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+        
+                .header4 {
+                    background: #f2f2f2;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+                
+                .content4 {
+                    background: #d9d9d9;
+                    flex: 1;
+                    text-align: center;
+                    line-height: 200px;
+                }
+                
+                .footer4{
+                    background: #bfbfbf;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                }
+                
+                .sider4{
+                    background: #a9c6b9;
+                    width: 100px; 
+                    height:300px;
+                    float:left;
+                }
+                
+                .column{
+                    width: calc(100vw - 160px);
+                    height:300px;
+                    float:left;
+                }
+                
+            </code>
+        </pre>
+    </div>
+
+
+</body>
+</html>

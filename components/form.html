@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Component</title>
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+    <h1>Form 表单组件</h1>
+    <!-- 文本说明 -->
+    <div class="text-container">
+        <p>表单组件由以下组成：</p>
+        <p>输入框</p>
+        <p>下拉选择框</p>
+        <p>数字输入/选择</p>
+        <p>开关</p>
+        <p>单选</p>
+        <p>多选</p>
+        <p>颜色选择器</p>
+        <p>重置/提交</p>
+    </div>
+    
+    <h3>代码演示</h3>
+    <div class="form-container">
+        <h1>Form Component</h1>
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            
+            <label for="dropdown">Dropdown:</label>
+            <select id="dropdown" name="dropdown">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+            
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number">
+            
+            <label for="switch">Switch:</label>
+            <div class="switch">
+                <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                <label for="cmn-toggle-1"></label>
+              </div>
+              
+              <div class="switch">
+                <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                <label for="cmn-toggle-4"></label>
+              </div>
+              
+              <div class="switch">
+                <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                <label for="cmn-toggle-7" data-on="Yes" data-off="No"></label>
+              </div>
+            
+            <label for="radio">Radio Selection:</label>
+            <div class="selection">
+                <input type="radio" id="radio1" name="radio" value="radio1">
+                <label for="radio1">Item 1</label>
+                <input type="radio" id="radio2" name="radio" value="radio2">
+                <label for="radio2">Item 2</label>
+                <input type="radio" id="radio2" name="radio" value="radio2">
+                <label for="radio2">Item 3</label>
+            </div>
+            
+            <label for="checkbox">Checkbox Selection:</label>
+            <div class="selection">
+                <input type="checkbox" id="checkbox1" name="checkbox" value="checkbox1">
+                <label for="checkbox1">A</label>
+                <input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2">
+                <label for="checkbox2">B</label>
+                <input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2">
+                <label for="checkbox2">C</label>
+                <input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2">
+                <label for="checkbox2">D</label>
+            </div>
+           
+            
+            <label for="color">Color Selection:</label>
+            <input type="color" id="color" name="color">
+            
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML：</h3>
+    <pre id="source-code">
+        <code>
+            &lt;form id="myForm"&gt;
+            &lt;label for="name"&gt;Name:&lt;/label&gt;
+            &lt;input type="text" id="name" name="name"&gt;
+            
+            &lt;label for="dropdown"&gt;Dropdown:&lt;/label&gt;
+            &lt;select id="dropdown" name="dropdown"&gt;
+                &lt;option value="option1"&gt;Option 1&lt;/option&gt;
+                &lt;option value="option2"&gt;Option 2&lt;/option&gt;
+                &lt;option value="option3"&gt;Option 3&lt;/option&gt;
+            &lt;/select&gt;
+            
+            &lt;label for="number"&gt;Number:&lt;/label&gt;
+            &lt;input type="number" id="number" name="number"&gt;
+            
+            &lt;label for="switch"&gt;Switch:&lt;/label&gt;
+            &lt;div class="switch"&gt;
+                &lt;input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox"&gt;
+                &lt;label for="cmn-toggle-1"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="switch"&gt;
+                &lt;input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox"&gt;
+                &lt;label for="cmn-toggle-4"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="switch"&gt;
+                &lt;input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox"&gt;
+                &lt;label for="cmn-toggle-7" data-on="Yes" data-off="No"&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;label for="radio"&gt;Radio Selection:&lt;/label&gt;
+            &lt;div class="selection"&gt;
+                &lt;input type="radio" id="radio1" name="radio" value="radio1"&gt;
+                &lt;label for="radio1"&gt;Item 1&lt;/label&gt;
+                &lt;input type="radio" id="radio2" name="radio" value="radio2"&gt;
+                &lt;label for="radio2"&gt;Item 2&lt;/label&gt;
+                &lt;input type="radio" id="radio2" name="radio" value="radio2"&gt;
+                &lt;label for="radio2"&gt;Item 3&lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;label for="checkbox"&gt;Checkbox Selection:&lt;/label&gt;
+            &lt;div class="selection"&gt;
+                &lt;input type="checkbox" id="checkbox1" name="checkbox" value="checkbox1"&gt;
+                &lt;label for="checkbox1"&gt;A&lt;/label&gt;
+                &lt;input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2"&gt;
+                &lt;label for="checkbox2"&gt;B&lt;/label&gt;
+                &lt;input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2"&gt;
+                &lt;label for="checkbox2"&gt;C&lt;/label&gt;
+                &lt;input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2"&gt;
+                &lt;label for="checkbox2"&gt;D&lt;/label&gt;
+            &lt;/div&gt;
+            
+            &lt;label for="color"&gt;Color Selection:&lt;/label&gt;
+            &lt;input type="color" id="color" name="color"&gt;
+            
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+            &lt;button type="reset"&gt;Reset&lt;/button&gt;
+        &lt;/form&gt;
+        </code>
+    </pre>    
+
+    <h3>css:</h3>
+    <pre id="source-code">
+        <code>
+            .form-container {
+                max-width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            label {
+                margin-bottom: 5px;
+            }
+            
+            input, select {
+                margin-bottom: 10px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+            
+            button {
+                padding: 5px 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            
+            button:hover {
+                background-color: #45a049;
+            }
+            
+            .cmn-toggle {
+                position: absolute;
+                margin-left: -9999px;
+                visibility: hidden;
+              }
+              .cmn-toggle + label {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                outline: none;
+                user-select: none;
+              }
+            
+              input.cmn-toggle-round + label {
+              padding: 2px;
+              width: 40px;
+              height: 20px;
+              background-color: #dddddd;
+              border-radius: 20px;
+            }
+            input.cmn-toggle-round + label:before,
+            input.cmn-toggle-round + label:after {
+              display: block;
+              position: absolute;
+              top: 1px;
+              left: 1px;
+              bottom: 1px;
+              content: "";
+            }
+            input.cmn-toggle-round + label:before {
+              right: 1px;
+              background-color: #f1f1f1;
+              border-radius: 20px;
+              transition: background 0.4s;
+            }
+            input.cmn-toggle-round + label:after {
+              width: 19px;
+              background-color: #fff;
+              border-radius: 100%;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+              transition: margin 0.4s;
+            }
+            input.cmn-toggle-round:checked + label:before {
+              background-color: #8ce196;
+            }
+            input.cmn-toggle-round:checked + label:after {
+              margin-left: 20px;
+            }
+            
+            .selection{
+                display: inline;
+            }
+        </code>
+    </pre> 
+
+    <h3>js:</h3>
+    <pre id="source-code">
+        <code>
+            document.getElementById("myForm").addEventListener("submit", function(event){
+                event.preventDefault();
+                
+                let name = document.getElementById("name").value;
+                let dropdown = document.getElementById("dropdown").value;
+                let number = document.getElementById("number").value;
+                let switchValue = document.getElementById("switch").checked;
+                
+                let radioValue;
+                if(document.getElementById("radio1").checked){
+                    radioValue = document.getElementById("radio1").value;
+                } else if(document.getElementById("radio2").checked){
+                    radioValue = document.getElementById("radio2").value;
+                }
+                
+                let checkboxValues = [];
+                if(document.getElementById("checkbox1").checked){
+                    checkboxValues.push(document.getElementById("checkbox1").value);
+                }
+                if(document.getElementById("checkbox2").checked){
+                    checkboxValues.push(document.getElementById("checkbox2").value);
+                }
+                
+                let color = document.getElementById("color").value;
+                
+            });
+        </code>
+    </pre> 
+
+    
+
+    <script src="../js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Component</title>
+    <link rel="stylesheet" href="../css/tag.css">
+</head>
+
+<body>
+    <!-- 文本说明 -->
+    <h1>Tag 标签组件</h1> 
+    <div class="text-container">
+        <p>虚线框标签为添加标签入口</p>
+        <p>可以添加可删除标签和不可删除标签</p>
+        <p>点击"x"可删除标签</p>
+    </div>
+    
+    <h3>代码演示</h3>
+    <div id="tagContainer">
+        <div class="tag">不可删除标签</div>
+        <div class="tag addTag">+ 添加标签</div>
+    </div>
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML:</h3>
+    <pre id="source-code">
+        <code>
+            &lt;div id="tagContainer"&gt;
+                &lt;div class="tag"&gt;不可删除标签&lt;/div&gt;
+                &lt;div class="tag addTag"&gt;+ 添加标签&lt;/div&gt;
+            </div>
+        </code>
+    </pre>
+
+    <h3>CSS:</h3>
+    <pre id="source-code">
+        <code>
+            .tag {
+                display: inline-block;
+                padding: 5px 10px;
+                /* background-color: #f0f0f0; */
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-right: 10px;
+                cursor: pointer;
+              }
+              
+              .addTag {
+                  border-color: black;
+                border-style: dashed;
+              }
+              
+              .addTag:focus {
+                outline: none;
+              }
+        </code>
+    </pre>
+
+    <h3>JS:</h3>
+    <pre id="source-code">
+        <code>
+            const tagContainer = document.getElementById('tagContainer');
+
+function createTag(tagName, removable) {
+    const tag = document.createElement('div');
+    tag.classList.add('tag');
+    tag.textContent = tagName;
+
+    if (removable) {
+        const closeBtn = document.createElement('span');
+        closeBtn.textContent = '×';
+        closeBtn.classList.add('closeBtn');
+        closeBtn.addEventListener('click', function() {
+            tagContainer.removeChild(tag);
+        });
+
+        tag.appendChild(closeBtn);
+    }
+
+    tagContainer.insertBefore(tag, tagContainer.lastChild);
+}
+
+tagContainer.addEventListener('click', function(event) {
+    if (event.target.classList.contains('addTag')) {
+        const tagName = prompt('请输入要添加的标签名');
+        const isRemovable = confirm('是否设置为不可删除标签？');
+        if (tagName) {
+            createTag(tagName, !isRemovable);
+            tagContainer.removeChild(event.target);
+            const newTagButton = document.createElement('div');
+            newTagButton.classList.add('tag', 'addTag');
+            newTagButton.innerHTML = '<span class="addIcon">+</span> 添加标签';
+            tagContainer.insertBefore(newTagButton, tagContainer.lastChild);
+        }
+    }
+});
+        </code>
+    </pre>
+
+    <script src="../js/tag.js"></script>
+</body>
+
+</html>

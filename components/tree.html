@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Component</title>
+    <link rel="stylesheet" href="../css/tree.css">
+</head>
+<body>
+    <!-- 文本说明 -->
+    <h1>Tree 树形组件</h1>
+    <div class="text-container">
+        <p>这是一个树型组件，点击▶可以展开或收起</p>
+    </div>
+    <h3>代码演示</h3>
+    <div id="tree">
+        <ul>
+            <li class="parent">
+                <span class="toggle">▶</span> 
+                Parent 1
+                <ul class="children">
+                    <li class="parent">
+                        <span class="toggle">▶</span> 
+                        Child 1-1
+                        <ul class="children">
+                            <li>Grandchild 1-1-1</li>
+                            <li>Grandchild 1-1-2</li>
+                        </ul>
+                    </li>
+                    <li>Child 1-2</li>
+                </ul>
+            </li>
+            <li class="parent">
+                <span class="toggle">▶</span> 
+                Parent 2
+                <ul class="children">
+                    <li>Child 2-1</li>
+                    <li>Child 2-2</li>
+                </ul>
+            </li>
+            <li class="parent">
+                <span class="toggle">▶</span> 
+                Parent 3
+                <ul class="children">
+                    <li class="parent">
+                        <span class="toggle">▶</span> 
+                        Child 3-1
+                        <ul class="children">
+                            <li>Grandchild 3-1-1</li>
+                            <li>Grandchild 3-1-2</li>
+                        </ul>
+                    </li>
+                    <li>Child 3-2</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML:</h3>
+    <pre id="source-code">
+        <code>
+            &lt;div id="tree"&gt;
+            &lt;ul&gt;
+                &lt;li class="parent"&gt;
+                    &lt;span class="toggle"&gt;▶&lt;/span&gt;
+                    Parent 1
+                    &lt;ul class="children"&gt;
+                        &lt;li class="parent"&gt;
+                            &lt;span class="toggle"&gt;▶&lt;/span&gt;
+                            Child 1-1
+                            &lt;ul class="children"&gt;
+                                &lt;li&gt;Grandchild 1-1-1&lt;/li&gt;
+                                &lt;li&gt;Grandchild 1-1-2&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Child 1-2&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li class="parent"&gt;
+                    &lt;span class="toggle"&gt;▶&lt;/span&gt;
+                    Parent 2
+                    &lt;ul class="children"&gt;
+                        &lt;li&gt;Child 2-1&lt;/li&gt;
+                        &lt;li&gt;Child 2-2&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li class="parent"&gt;
+                    &lt;span class="toggle"&gt;▶&lt;/span&gt;
+                    Parent 3
+                    &lt;ul class="children"&gt;
+                        &lt;li class="parent"&gt;
+                            &lt;span class="toggle"&gt;▶&lt;/span&gt;
+                            Child 3-1
+                            &lt;ul class="children"&gt;
+                                &lt;li&gt;Grandchild 3-1-1&lt;/li&gt;
+                                &lt;li&gt;Grandchild 3-1-2&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;Child 3-2&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        </code>
+    </pre>
+
+    <h3>css:</h3>
+    <pre id="source-code">
+        <code>
+            #tree ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #tree .parent {
+                cursor: pointer;
+            }
+            
+            #tree .parent:hover {
+                background-color: #f0f0f0;
+            }
+            
+            #tree .toggle {
+                margin-right: 5px;
+                transition: transform 0.3s;
+            }
+            
+            #tree .expanded {
+                transform: rotate(90deg);
+            }
+            
+            #tree .children {
+                margin-left: 20px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+        </code>
+    </pre>
+
+    <h3>js:</h3>
+    <pre id="source-code">
+        <code>
+            document.addEventListener("DOMContentLoaded", function() {
+                const parentItems = document.querySelectorAll(".parent");
+            
+                parentItems.forEach(item => {
+                    const toggleButton = item.querySelector(".toggle");
+                    const childrenList = item.querySelector(".children");
+                    const grandChildrenList = item.querySelector(".grandchildren");
+                    const childrenHeight = childrenList.scrollHeight;
+            
+                    item.addEventListener("click", function(e) {
+                        if (e.target !== toggleButton) {
+                            return;
+                        }
+            
+                        if (childrenList.style.maxHeight) {
+                            childrenList.style.maxHeight = null;
+                            grandChildrenList.style.maxHeight = null;
+                            toggleButton.classList.remove("expanded");
+                            item.style.height = "auto";
+                        } else {
+                            childrenList.style.maxHeight = childrenHeight + "px";
+                            grandChildrenList.style.maxHeight = grandChildrenList.scrollHeight + "px";
+                            toggleButton.classList.add("expanded");
+                            item.style.height = (item.offsetHeight + childrenHeight) + "px";
+                        }
+                    });
+                });
+            });
+        </code>
+    </pre>
+
+    <script src="../js/tree.js"></script>
+</body>
+</html>

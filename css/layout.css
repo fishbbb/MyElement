@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout{
+    margin: 20px;
+}
+
+.header1 {
+    background: #f2f2f2;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.content1 {
+    background: #d9d9d9;
+    flex: 1;
+    text-align: center;
+    line-height: 200px;
+}
+
+.footer1 {
+    background: #bfbfbf;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.header2 {
+    background: #f2f2f2;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sider2 {
+    background: #a9c6b9;
+    text-align: center;
+    width: 200px;
+    line-height: 200px;
+}
+
+.content2 {
+    background: #d9d9d9;
+    width: calc(100vw - 200px);
+    text-align: center;
+    line-height: 200px;
+}
+
+.footer2 {
+    background: #bfbfbf;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.row {
+    display: flex;
+}
+
+
+.header3 {
+    background: #f2f2f2;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sider3 {
+    background: #a9c6b9;
+    width: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.content3 {
+    background: #d9d9d9;
+    width: calc(100vw - 200px);
+    text-align: center;
+    line-height: 200px;
+}
+
+.footer3 {
+    background: #bfbfbf;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.row {
+    display: flex;
+}
+
+
+.header4 {
+    background: #f2f2f2;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.content4 {
+    background: #d9d9d9;
+    flex: 1;
+    text-align: center;
+    line-height: 200px;
+}
+
+.footer4{
+    background: #bfbfbf;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sider4{
+    background: #a9c6b9;
+    width: 100px; 
+    height:300px;
+    float:left;
+}
+
+.column{
+    width: calc(100vw - 160px);
+    height:300px;
+    float:left;
+}
+
+#source-code {
+    width: 80%;
+    margin: 20px 0;
+    overflow: auto;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid black; /* Bold border */
+    padding: 10px;
+    align-content: center;
+}
+
+.text-container{
+    border-bottom: 1px solid grey;
+}

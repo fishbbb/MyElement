@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bonus.css">
+</head>
+<body>
+  <!-- 文本说明 -->
+  <div class="text-container">
+    <h1>Image 图片上传组件</h1>
+    <p>点击上传图片处选择图片上传</p>
+    <p>上传的图片将展示在图片列表内</p>
+    <p>列表里的图片可以点击右上角的删除文件进行删除（无图片时不显示）</p>
+  </div>
+
+  <h3>代码演示</h3>
+  <div class="image-upload-container">
+    <div class="image-upload-placeholder" id="imageUploadPlaceholder" onclick="document.getElementById('imageUploadInput').click()">
+      <span class="upload-icon">+</span>
+      <span class="upload-text">上传图片</span>
+      <input type="file" id="imageUploadInput" accept="image/*" style="display: none">
+    </div>
+    <h3>图片列表</h3>
+    <div class="uploaded-images" id="uploadedImages"></div>
+  </div>
+
+  <!-- 源代码展示部分 -->
+  <h3>HTML:</h3>
+  <pre id="source-code">
+      <code>
+        &lt;div class="image-upload-container"&gt;
+          &lt;div class="image-upload-placeholder" id="imageUploadPlaceholder" onclick="document.getElementById('imageUploadInput').click()"&gt;
+            &lt;span class="upload-icon"&gt;+&lt;/span&gt;
+            &lt;span class="upload-text"&gt;上传图片&lt;/span&gt;
+            &lt;input type="file" id="imageUploadInput" accept="image/*" style="display: none"&gt;
+          &lt;/div&gt;
+          &lt;h3&gt;图片列表&lt;/h3&gt;
+          &lt;div class="uploaded-images" id="uploadedImages"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      </code>
+  </pre>
+
+  <h3>CSS:</h3>
+  <pre id="source-code">
+      <code>
+        .image-upload-container {
+          position: relative;
+          text-align: center;
+        }
+        
+        .image-upload-placeholder {
+          border: 2px dashed #ccc;
+          padding: 20px;
+          text-align: center;
+          cursor: pointer;
+        }
+        
+        .uploaded-images {
+          display: flex;
+        }
+        
+        .upload-icon {
+          font-size: 48px;
+          color: #ccc;
+        }
+        
+        .upload-text {
+          display: block;
+          margin-top: 10px;
+          color: #ccc;
+        }
+        
+        .uploaded-image {
+          max-width: 100px;
+          max-height: 100px;
+          margin-right: 10px;
+          position: relative;
+        }
+        
+        .delete-icon {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          cursor: pointer;
+        }
+      </code>
+  </pre>
+
+  <h3>JS:</h3>
+  <pre id="source-code">
+      <code>
+        document.getElementById('imageUploadInput').addEventListener('change', function() {
+          const file = this.files[0];
+          const reader = new FileReader();
+        
+          reader.onload = function(e) {
+            const uploadedImagesContainer = document.getElementById('uploadedImages');
+            const uploadedImageElement = document.createElement('div');
+            const imgElement = document.createElement('img');
+            const deleteIcon = document.createElement('span');
+        
+            imgElement.src = e.target.result;
+            imgElement.classList.add('uploaded-image');
+            uploadedImageElement.appendChild(imgElement);
+        
+            deleteIcon.innerHTML = '❌ 删除一张图片';
+            deleteIcon.classList.add('delete-icon');
+            deleteIcon.addEventListener('click', function() {
+              uploadedImagesContainer.removeChild(uploadedImageElement);
+              if (uploadedImagesContainer.children.length === 0) {
+                document.getElementById('imageUploadPlaceholder').style.display = 'block';
+              }
+            });
+            uploadedImageElement.appendChild(deleteIcon);
+            
+            uploadedImagesContainer.appendChild(uploadedImageElement);
+            //document.getElementById('imageUploadPlaceholder').style.display = 'none';
+          };
+        
+          reader.readAsDataURL(file);
+        });
+      </code>
+  </pre>
+  
+      <script src="../js/bonus.js"></script>
+</body>
+</html>

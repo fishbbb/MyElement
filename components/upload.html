@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Component</title>
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+
+<body>
+    <!-- 文本说明 -->
+    <div class="text-container">
+        <h1>Upload 文件上传组件</h1>
+        <p>点击Choose File选择上传文件</p>
+        <p>上传的图片将展示在文件列表内</p>
+        <p>列表里的文件可以点击行末尾的Remove按钮删除</p>
+    </div>
+    <div id="file-upload">
+        <label for="file-input" class="file-label">Choose File</label>
+        <input type="file" id="file-input" multiple />
+        <h3>文件列表</h3>
+        <ul id="file-list" class="file-list"></ul>
+    </div>
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML:</h3>
+    <pre id="source-code">
+        <code>
+            &lt;div id="file-upload"&gt;
+                &lt;label for="file-input" class="file-label"&gt;Choose File&lt;/label&gt;
+                &lt;input type="file" id="file-input" multiple /&gt;
+                &lt;h3&gt;文件列表&lt;/h3&gt;
+                &lt;ul id="file-list" class="file-list"&gt;&lt;/ul&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+
+    <h3>CSS:</h3>
+    <pre id="source-code">
+        <code>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #file-upload {
+                text-align: center;
+                margin-top: 50px;
+            }
+            
+            .file-label {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            .file-list {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .file-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ccc;
+                padding: 10px;
+            }
+            
+            .file-item button {
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            #file-input {
+                display: none;
+            }
+            
+        </code>
+    </pre>
+
+    <h3>JS:</h3>
+    <pre id="source-code">
+        <code>
+            const fileInput = document.getElementById('file-input');
+const fileList = document.getElementById('file-list');
+
+fileInput.addEventListener('change', function() {
+    const files = Array.from(fileInput.files);
+
+    files.forEach(file => {
+        const fileItem = document.createElement('li');
+        fileItem.className = 'file-item';
+        fileItem.innerHTML = `
+            &lt;span&gt;${file.name}&lt;/span&gt;
+            &lt;button onclick="removeFile(event)"&gt;Remove&lt;/button&gt;
+        `;
+
+        fileList.appendChild(fileItem);
+    });
+});
+
+function removeFile(event) {
+    const fileItem = event.target.parentElement;
+    fileList.removeChild(fileItem);
+}
+        </code>
+    </pre>
+
+    <script src="../js/upload.js"></script>
+</body>
+
+</html>

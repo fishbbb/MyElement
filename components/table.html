@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/table.css">
+</head>
+<body>
+    <!-- 文本说明 -->
+    <h1>Table 表格组件</h1>
+    <p>①点击表头排序</p>
+    <p>②支持全选和单选</p>
+    <p>---快来试试吧~---</p>
+    <div class="table-container">
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllCheckbox" onclick="selectAllRows()">Select</th>
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">Age</th>
+                    <th onclick="sortTable(3)">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Alice Brown</td>
+                    <td>28</td>
+                    <td>France</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Charlie Wilson</td>
+                    <td>35</td>
+                    <td>Australia</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Emma Martinez</td>
+                    <td>22</td>
+                    <td>Spain</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Dylan Carter</td>
+                    <td>29</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Sophia White</td>
+                    <td>31</td>
+                    <td>Italy</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Oliver Johnson</td>
+                    <td>26</td>
+                    <td>Japan</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Isabella Adams</td>
+                    <td>33</td>
+                    <td>Argentina</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Ethan Brown</td>
+                    <td>24</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Mia Davis</td>
+                    <td>27</td>
+                    <td>Brazil</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="select-checkbox"></td>
+                    <td>Noah Wilson</td>
+                    <td>30</td>
+                    <td>India</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML:</h3>
+    <pre id="source-code">
+        <code>
+            &lt;div class="table-container"&gt;
+            &lt;table id="myTable"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;&lt;input type="checkbox" id="selectAllCheckbox" onclick="selectAllRows()"&gt;Select&lt;/th&gt;
+                        &lt;th onclick="sortTable(1)"&gt;Name&lt;/th&gt;
+                        &lt;th onclick="sortTable(2)"&gt;Age&lt;/th&gt;
+                        &lt;th onclick="sortTable(3)"&gt;Country&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;input type="checkbox" class="select-checkbox"&gt;&lt;/td&gt;
+                        &lt;td&gt;Alice Brown&lt;/td&gt;
+                        &lt;td&gt;28&lt;/td&gt;
+                        &lt;td&gt;France&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+        </code>
+    </pre>
+
+    <h3>CSS:</h3>
+    <pre id="source-code">
+        <code>
+            .table-container {
+                width: 100%;
+                overflow-x: auto;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            
+            th {
+                cursor: pointer;
+            }
+            
+            .select-checkbox {
+                transform: scale(1.5);
+            }
+        </code>
+    </pre>
+
+    <h3>JS:</h3>
+    <pre id="source-code">
+        <code>
+            function sortTable(columnIndex) {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("myTable");
+                switching = true;
+                
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("td")[columnIndex];
+                        y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+                      
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch= true;
+                            break;
+                        }
+                    }
+                    
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+            
+            function selectAllRows() {
+                var selectAllCheckbox = document.getElementById('selectAllCheckbox');
+                var checkboxes = document.getElementsByClassName('select-checkbox');
+                
+                for (var i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].checked = selectAllCheckbox.checked;
+                }
+            }
+        </code>
+    </pre>
+
+
+    <script src="../js/table.js"></script>
+</body>
+</html>

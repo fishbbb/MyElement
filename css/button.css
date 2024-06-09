@@ -1,0 +1,78 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.button-description {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+    gap: 10px; /* 添加间隔 */
+    padding: 10px; /* 给按钮容器添加内边距 */
+}
+
+button,a {
+    border-radius: 5%;
+    width: 100px;
+    height: 45px;
+    margin-right: 10px; /* 添加右侧间距 */
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.dashed {
+    border: 1px dashed #343a40;
+}
+
+.text {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+}
+
+.link-btn {
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: underline;
+    border: none;
+}
+
+.block {
+    display: block;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#source-code {
+    width: 80%;
+    margin: 20px 0;
+    overflow: auto;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid black; /* Bold border */
+    padding: 10px;
+    align-content: center;
+}

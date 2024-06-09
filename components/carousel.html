@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Component</title>
+    <link rel="stylesheet" href="../css/carousel.css">
+</head>
+
+<body>
+    <!-- 文本说明 -->
+    <h1>Carousel 走马灯组件</h1>
+    <div class="text-container">
+        <p>自动轮播，也可以点击切换</p>
+        <p>图片下方有圆形指示器</p>
+        <p>请看我的猫~~</p>
+    </div>
+   
+    <h3>代码演示</h3>
+    <div id="carousel" class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-item active">
+                <img src="../assets/image1.jpg" alt="Image 1">
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/image2.jpg" alt="Image 2">
+                <div class="carousel-indicators">
+                    <span class="indicator" onclick="currentSlide(1)"></span>
+                    <span class="indicator  active" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/image3.jpg" alt="Image 3">
+                <div class="carousel-indicators">
+                    <span class="indicator" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator active" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+     <!-- 源代码展示部分 -->
+    <h3>HTML:</h3>
+    <pre id="source-code">
+        <code>
+            &lt;div id="carousel" class="carousel"&gt;
+                &lt;div class="carousel-container"&gt;
+                    &lt;div class="carousel-item active"&gt;
+                        &lt;img src="../assets/image1.jpg" alt="Image 1"&gt;
+                        &lt;div class="carousel-indicators"&gt;
+                            &lt;span class="indicator active" onclick="currentSlide(1)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator" onclick="currentSlide(2)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator" onclick="currentSlide(3)"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="carousel-item"&gt;
+                        &lt;img src="../assets/image2.jpg" alt="Image 2"&gt;
+                        &lt;div class="carousel-indicators"&gt;
+                            &lt;span class="indicator" onclick="currentSlide(1)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator  active" onclick="currentSlide(2)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator" onclick="currentSlide(3)"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="carousel-item"&gt;
+                        &lt;img src="../assets/image3.jpg" alt="Image 3"&gt;
+                        &lt;div class="carousel-indicators"&gt;
+                            &lt;span class="indicator" onclick="currentSlide(1)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator" onclick="currentSlide(2)"&gt;&lt;/span&gt;
+                            &lt;span class="indicator active" onclick="currentSlide(3)"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class="prev" onclick="prevSlide()"&gt;&#10094;&lt;/button&gt;
+                &lt;button class="next" onclick="nextSlide()"&gt;&#10095;&lt;/button&gt;
+            &lt;/div&gt;
+        </code>
+    </pre>
+
+    <h3>CSS:</h3>
+    <pre id="source-code">
+        <code>
+            .carousel {
+                position: relative;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .carousel-container {
+                display: flex;
+            }
+            
+            .carousel-item {
+                display: none;
+                padding: 10px;
+            }
+            
+            .carousel-item.active {
+                display: block;
+            }
+            
+            
+            button.prev, button.next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: #333;
+                color: white;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+            }
+            
+            button.prev {
+                left: 0;
+            }
+            
+            button.next {
+                right: 0;
+            }
+            
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* 或者使用 object-fit: contain; */
+            }
+            
+            .carousel-indicators {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .indicator {
+                width: 10px;
+                height: 10px;
+                background-color: #7b7a7a;
+                margin: 0 5px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            
+            .indicator.active {
+                background-color: #242424;
+            }
+        </code>
+    </pre>
+
+    <h3>JS:</h3>
+    <pre id="source-code">
+        <code>
+            let slideIndex = 1;
+showSlides(slideIndex);
+
+function nextSlide() {
+    showSlides(slideIndex += 1);
+}
+
+function prevSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("carousel-item");
+    const indicators = document.getElementsByClassName("indicator");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        indicators[i].classList.remove("active");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    indicators[slideIndex - 1].classList.add("active");
+}
+
+let autoSlide = setInterval(function() {
+    nextSlide();
+}, 3000);
+        </code>
+    </pre>
+
+    <script src="../js/carousel.js"></script>
+</body>
+
+</html>

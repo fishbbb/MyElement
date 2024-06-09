@@ -1,0 +1,45 @@
+#tree ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tree .parent {
+    cursor: pointer;
+}
+
+#tree .parent:hover {
+    background-color: #f0f0f0;
+}
+
+#tree .toggle {
+    margin-right: 5px;
+    transition: transform 0.3s;
+}
+
+#tree .expanded {
+    transform: rotate(90deg);
+}
+
+#tree .children {
+    margin-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+#source-code {
+    width: 80%;
+    margin: 20px 0;
+    overflow: auto;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid black; /* Bold border */
+    padding: 10px;
+    align-content: center;
+}
+
+.text-container{
+    border-bottom: 1px solid grey;
+    margin-bottom: 15px;
+}

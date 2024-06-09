@@ -1,0 +1,34 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    cursor: pointer;
+}
+
+.select-checkbox {
+    transform: scale(1.5);
+}
+
+#source-code {
+    width: 80%;
+    margin: 20px 0;
+    overflow: auto;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid black; /* Bold border */
+    padding: 10px;
+    align-content: center;
+}

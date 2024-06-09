@@ -1,0 +1,59 @@
+.image-upload-container {
+  position: relative;
+  text-align: center;
+}
+
+.image-upload-placeholder {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.uploaded-images {
+  display: flex;
+  padding-bottom: 50px;
+  border-bottom: 1px solid grey;
+}
+
+.upload-icon {
+  font-size: 48px;
+  color: #ccc;
+}
+
+.upload-text {
+  display: block;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.uploaded-image {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+#source-code {
+  width: 80%;
+  margin: 20px 0;
+  overflow: auto;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid black; /* Bold border */
+  padding: 10px;
+  align-content: center;
+}
+
+.text-container{
+  padding-bottom: 10px ;
+  border-bottom: 1px solid grey;
+  margin-bottom: 15px;
+}
